@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Third Brain</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            background: '#050505',
+            surface: '#121212',
+            gradientStart: '#1ae6e6', 
+            gradientMiddle: '#4169e1', 
+            gradientEnd: '#8a2be2', 
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glow-bg {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(26, 230, 230, 0.15) 0%, rgba(138, 43, 226, 0.1) 30%, rgba(0,0,0,0) 70%);
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    
+    .glass-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(26, 230, 230, 0.4);
+    }
+
+    /* Alterado de infinite para forwards para digitar apenas uma vez */
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    .typing-text {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #ffffff;
+      animation: typing 1.5s steps(40) forwards;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.02); opacity: 0.8; }
+    }
+    .teia-pulsing {
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .modal-floating {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .gradient-text-accent {
+      background-image: linear-gradient(to right, var(--tw-gradient-start), var(--tw-gradient-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .gradient-bg-accent {
+      background-image: linear-gradient(to right, var(--tw-gradient-start), var(--tw-gradient-end));
+    }
+  </style>
+</head>
+<body class="bg-background text-white font-sans antialiased overflow-x-hidden selection:bg-gradientEnd/30">
+
+  <div class="glow-bg"></div>
+
+  <nav class="max-w-5xl mx-auto px-6 py-8 flex justify-between items-center relative z-10">
+    <div class="flex items-center gap-3 font-bold text-xl tracking-tight">
+      <img src="app-icon.png" alt="Third Brain Logomarca" class="w-8 h-8 rounded-full" />
+      <span class="gradient-text-accent">Third Brain</span>
+    </div>
+    <div class="text-xs font-semibold px-3 py-1 bg-white/10 border border-gradientStart/20 rounded-full text-gradientEnd">
+      Em Produção
+    </div>
+  </nav>
+
+  <main class="max-w-5xl mx-auto px-6 pt-20 pb-32 text-center relative z-10">
+    <h1 class="text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-500">
+      Pense na velocidade <br /> <span class="gradient-text-accent">da luz.</span>
+    </h1>
+    <p class="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-10 leading-relaxed overflow-hidden">
+      Capture, transcreva e conecte suas ideias em milissegundos. Um núcleo de Inteligência Artificial que roda 100% offline no seu computador, acessível por um único atalho.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      
+      <a href="https://forms.gle/yNXuBi59mfKpKsFJ6" target="_blank" class="px-8 py-3 font-semibold rounded-lg hover:brightness-110 transition-colors shadow-[0_0_30px_rgba(26,230,230,0.3)] gradient-bg-accent text-center">
+        Entrar na Lista de Espera
+      </a>
+      
+      <a href="https://github.com/lucasvidalsilva/thirdbrain" target="_blank" class="px-8 py-3 bg-surface border border-white/10 text-white font-medium rounded-lg hover:bg-white/5 transition-colors flex items-center justify-center gap-2">
+        <i data-lucide="github" class="w-5 h-5"></i>
+        Ver no GitHub
+      </a>
+
+    </div>
+
+    <div class="mt-20 relative mx-auto max-w-4xl">
+      <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent z-10 h-full w-full bottom-0 top-auto pointer-events-none"></div>
+      <div class="glass-card rounded-xl p-2 shadow-2xl overflow-hidden border border-white/10">
+        
+        <div class="bg-[#050505] rounded-lg aspect-video flex flex-col relative overflow-hidden border border-white/5">
+          
+          <div class="absolute top-4 left-4 flex gap-2 z-20">
+            <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+          </div>
+          
+          <div id="mockup-content" class="absolute inset-0 flex flex-col items-center justify-center p-8 z-10 transition-all duration-500 opacity-100">
+             <i data-lucide="command" class="w-12 h-12 text-neutral-600 pulse-icon"></i>
+             <p id="mockup-instruction" class="font-mono text-sm text-neutral-500 mt-4">Pressione Ctrl + Espaço para capturar</p>
+          </div>
+
+          <div id="capturing-state" class="absolute inset-x-8 top-16 z-10 flex flex-col items-center gap-2 transition-all duration-500 opacity-0 hidden">
+            <div class="glass-card p-3 rounded-lg border-white/10 flex items-center gap-3 w-full max-w-lg shadow-lg">
+               <i data-lucide="mic" class="w-5 h-5 gradient-text-accent pulse-icon shrink-0"></i>
+               <p class="font-mono text-sm typing-text text-neutral-200">insight: memoization reduz fibonacci de O(2^n) para O(n)</p>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center pulse-icon mt-2 shadow-lg">
+                <span class="gradient-text-accent font-bold text-xs">AI</span>
+            </div>
+          </div>
+
+          <div id="visualization-state" class="absolute inset-x-8 top-16 bottom-8 z-10 teia-pulsing overflow-auto transition-all duration-700 opacity-0 hidden">
+             
+             <div class="flex gap-2 flex-wrap mb-4 px-2">
+               <span class="text-[11px] px-2.5 py-1 bg-surface border border-white/10 text-gradientMiddle rounded-full font-medium tracking-wide">#Filosofia</span>
+               <span class="text-[11px] px-2.5 py-1 bg-surface border border-white/10 text-gradientMiddle rounded-full font-medium tracking-wide">#Estoicismo</span>
+               <span class="text-[11px] px-2.5 py-1 bg-surface border border-white/10 text-gradientMiddle rounded-full font-medium tracking-wide">#Matemática</span>
+               <span class="text-[11px] px-2.5 py-1 bg-surface border border-white/10 text-gradientEnd rounded-full font-medium tracking-wide">#Algoritmos</span>
+               <span class="text-[11px] px-2.5 py-1 bg-surface border border-white/10 text-gradientEnd rounded-full font-medium tracking-wide">#Finanças</span>
+             </div>
+
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="glass-card p-5 rounded-xl border-white/10 hover:border-white/20 transition-colors">
+                   <p class="text-xs text-neutral-300 leading-relaxed">Estoicismo & Finanças: Sêneca dizia que não temos pouco tempo, mas perdemos muito. Nos investimentos, o tempo é a variável exponencial dos juros compostos.</p>
+                </div>
+
+                <div class="glass-card p-5 rounded-xl border-white/10 hover:border-white/20 transition-colors">
+                   <p class="text-xs text-neutral-300 leading-relaxed">Teoria dos Grafos: É fascinante como a mesma estrutura de vértices e arestas governa tanto as rotas de GPS quanto as redes neurais.</p>
+                </div>
+
+                <div class="glass-card p-5 rounded-xl border-white/10 hover:border-white/20 transition-colors">
+                   <p class="text-xs text-neutral-300 leading-relaxed">O Teorema CAP prova matematicamente que sistemas distribuídos não podem ter Consistência, Disponibilidade e Tolerância a Partições ao mesmo tempo.</p>
+                </div>
+                
+                 <div class="glass-card p-5 rounded-xl border-gradientMiddle/40 bg-gradientMiddle/5 relative overflow-hidden group">
+                   <div class="absolute inset-0 bg-gradient-to-r from-gradientStart/10 to-gradientEnd/10 opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                   <p class="text-xs text-white relative z-10 font-medium font-mono">insight: memoization reduz fibonacci de O(2^n) para O(n)</p>
+                </div>
+             </div>
+
+             <div class="absolute inset-0 -z-10 pointer-events-none opacity-20 flex items-center justify-center">
+               <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                 <line x1="20" y1="20" x2="50" y2="50" class="stroke-gradientStart" stroke-width="0.3" stroke-dasharray="2" />
+                 <line x1="80" y1="20" x2="50" y2="50" class="stroke-gradientMiddle" stroke-width="0.3" stroke-dasharray="2" />
+                 <line x1="50" y1="80" x2="50" y2="50" class="stroke-gradientEnd" stroke-width="0.3" stroke-dasharray="2" />
+                 <line x1="20" y1="80" x2="50" y2="50" class="stroke-gradientMiddle" stroke-width="0.3" stroke-dasharray="2" />
+               </svg>
+             </div>
+          </div>
+
+           <div id="insight-modal" class="absolute inset-0 z-30 flex items-center justify-center p-8 bg-black/40 backdrop-blur-sm transition-all duration-500 opacity-0 hidden">
+             <div class="glass-card p-6 rounded-2xl w-full max-w-md shadow-2xl modal-floating border border-gradientStart/30 bg-[#0a0a0a]/90">
+                <h3 class="text-sm font-bold text-white mb-4 flex items-center gap-2 border-b border-white/10 pb-3">
+                   <i data-lucide="sparkles" class="w-4 h-4 text-gradientStart"></i>
+                   Processamento Concluído
+                </h3>
+                
+                <div class="p-3 rounded-lg bg-white/5 border border-white/5 mb-5">
+                   <p class="text-[11px] text-neutral-400 font-mono">Entrada bruta:</p>
+                   <p class="text-sm text-white mt-1">"insight: memoization reduz fibonacci de O(2^n) para O(n)"</p>
+                </div>
+                
+                <h4 class="text-[10px] font-bold text-gradientMiddle uppercase tracking-widest mb-2">Resumo Automático (Phi-3)</h4>
+                
+                <div class="p-4 rounded-lg bg-gradientMiddle/5 border border-gradientMiddle/20 mb-5 relative overflow-hidden">
+                   <div class="absolute inset-0 gradient-bg-accent opacity-5"></div>
+                   <p class="text-sm text-neutral-200 font-medium leading-relaxed relative z-10">Nota técnica sobre <span class="text-white">Programação Dinâmica</span>, destacando a melhoria de performance (Complexidade de Tempo) ao cachear resultados em algoritmos recursivos.</p>
+                </div>
+                
+                 <div class="flex gap-2 flex-wrap">
+                  <span class="text-[10px] px-2 py-1 bg-surface border border-white/10 text-neutral-300 rounded-md">#Algoritmos</span>
+                  <span class="text-[10px] px-2 py-1 bg-surface border border-white/10 text-neutral-300 rounded-md">#Performance</span>
+                  <span class="text-[10px] px-2 py-1 bg-gradientStart/10 border border-gradientStart/20 text-gradientStart rounded-md">#Big-O</span>
+                </div>
+             </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section class="max-w-5xl mx-auto px-6 py-24 relative z-10 border-t border-white/10">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-4">Engenharia de Dados Pessoal</h2>
+      <p class="text-neutral-400">Não é apenas um bloco de notas, é uma teia neural baseada na sua logomarca.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <div class="glass-card p-8 rounded-2xl group">
+        <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6 border border-gradientStart/20 group-hover:bg-gradientStart/10 transition-colors">
+          <i data-lucide="zap" class="text-gradientStart w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Acesso Instantâneo</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">Fica escondido na sua bandeja do sistema. Pressione um atalho global e a tela pula na sua frente em milissegundos. Foco total, zero distração.</p>
+      </div>
+
+      <div class="glass-card p-8 rounded-2xl group">
+        <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6 border border-gradientMiddle/20 group-hover:bg-gradientMiddle/10 transition-colors">
+          <i data-lucide="mic" class="text-gradientMiddle w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Processamento de Áudio</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">Fale suas ideias. O motor Whisper processa seu áudio direto na sua GPU, sem enviar seus pensamentos para servidores na nuvem.</p>
+      </div>
+
+      <div class="glass-card p-8 rounded-2xl group">
+        <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6 border border-gradientEnd/20 group-hover:bg-gradientEnd/10 transition-colors">
+          <i data-lucide="cpu" class="text-gradientEnd w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Bibliotecário IA (Phi-3)</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">Você não precisa criar pastas. A IA lê sua anotação, extrai metadados, gera um resumo e cria as tags automaticamente.</p>
+      </div>
+
+      <div class="glass-card p-8 rounded-2xl group">
+        <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6 border border-white/10 group-hover:bg-white/10 transition-colors">
+          <i data-lucide="network" class="text-white w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Teia Visual e Insights</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">Navegue pelas suas ideias como uma galáxia de conexões. Clique em uma anotação antiga e receba um insight gerado na hora.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="max-w-5xl mx-auto px-6 py-8 border-t border-white/10 text-center text-sm text-neutral-500 mt-20 relative z-10">
+    <p>Projeto em desenvolvimento ativo. Feito com ☕ por Lucas Vidal.</p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    // Elementos da DOM
+    const mockupContent = document.getElementById('mockup-content');
+    const capturingState = document.getElementById('capturing-state');
+    const visualizationState = document.getElementById('visualization-state');
+    const insightModal = document.getElementById('insight-modal');
+    const typingElement = document.querySelector('.typing-text');
+
+    // Funções auxiliares para transição suave
+    const fadeOut = (el, callback) => {
+      el.classList.remove('opacity-100');
+      el.classList.add('opacity-0');
+      setTimeout(() => {
+        el.classList.add('hidden');
+        if(callback) callback();
+      }, 500); // 500ms é o tempo do transition-all duration-500
+    };
+
+    const fadeIn = (el) => {
+      el.classList.remove('hidden');
+      // Timeout mínimo para garantir que o display:block aplicou antes da opacidade
+      setTimeout(() => {
+        el.classList.remove('opacity-0');
+        el.classList.add('opacity-100');
+      }, 50); 
+    };
+
+    // Lógica da Animação Loop do Mockup
+    const animateMockup = () => {
+      
+      // 1. Estado inicial (Esperando Input) - Fica por 3 segundos
+      setTimeout(() => {
+        fadeOut(mockupContent, () => {
+          
+          // Reseta a animação de digitação do CSS para ela ocorrer de novo
+          typingElement.style.animation = 'none';
+          typingElement.offsetHeight; 
+          typingElement.style.animation = null; 
+
+          // 2. Transição para Captura (Simula digitação e IA pensando)
+          fadeIn(capturingState);
+
+          setTimeout(() => {
+            fadeOut(capturingState, () => {
+              
+              // 3. Transição para Teia Visual (Anotação salva e organizada)
+              fadeIn(visualizationState);
+
+              setTimeout(() => {
+                
+                // 4. Mostra o Modal de Insight (Por cima da Teia)
+                fadeIn(insightModal);
+
+                setTimeout(() => {
+                  
+                  // Esconde Modal e Teia juntos para reiniciar o ciclo
+                  fadeOut(insightModal);
+                  fadeOut(visualizationState, () => {
+                     fadeIn(mockupContent);
+                     animateMockup(); // Inicia o loop novamente
+                  });
+
+                }, 4500); // Tempo lendo o Modal (4.5s)
+
+              }, 2500); // Tempo admirando a Teia Visual (2.5s)
+
+            });
+          }, 3000); // Tempo digitando e "pensando" (3s)
+
+        });
+      }, 3000); // Tempo inicial aguardando comando (3s)
+    };
+
+    // Inicia o ciclo assim que carregar
+    animateMockup();
+
+  </script>
+</body>
+</html>
